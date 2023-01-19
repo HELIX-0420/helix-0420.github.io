@@ -1,0 +1,271 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #2C2F33;
+  overflow-x: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.0;
+}
+
+/* Social Media Icon Bar */
+
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Style the icon bar links */
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  padding-right: 25px;
+  transition: all 0.3s ease;
+  font-size: 22px;
+}
+
+/* Style the social media icons with color, if you want */
+.icon-bar a {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #FFBB73;
+}
+.icon-bar a:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #f6cd8d;
+}
+
+.twitter:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #4078c0;
+}
+.discord:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #7289da;
+}
+.twitch:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #9146FF;
+}
+.tiktok:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #ff0050;
+}
+.github:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #ffff;
+}
+
+/* Live Indacator */
+.tw-channel-status-indicator{
+  background-color: #9146FF;
+  width:.4rem;
+  height:.4rem;
+  border-radius: 50%;
+  position: relative;
+  bottom: 28px;
+  right: 7px;
+}
+
+.tw-channel-status-indicator--pulse:after {
+    content: "";
+    animation: tw-channel-status-indicator-pulse 1.5s infinite;
+    animation-timing-function: ease-out;
+    background: #ec1313;
+    border-radius: 50%;
+    left: 0;
+    opacity: 1.0;
+    position: absolute;
+    top: 0;
+    height: .4rem;
+    width: .4rem;
+}
+
+@keyframes tw-channel-status-indicator-pulse {
+    0% {
+    opacity: 0.3;
+    transform: scaleX(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale3d(3, 3, 3);
+  }
+}
+
+/* NAVAGATION */
+.navbar {
+  padding-top: 3vh;
+}
+
+.navbar-toggler i {
+  color: #FFBB73;
+  font-size: 20px;
+  border: none;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus,
+.dropdown-menu,
+.dropdown-item,
+.btn,
+button {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.navbar-brand, .navbar-brand:hover {
+  color: #FFBB73;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.nav-item {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #FFBB73;
+}
+
+.current, .current:hover {
+  color: #6c757d;
+}
+
+.dropdown-menu {
+  background-color: #2c2f33;
+  text-align: center;
+  border-color: #FFBB73;
+}
+
+.dropdown-item, .dropdown-item:hover {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #FFBB73;
+  background-color: inherit;
+}
+
+/* HEADER AREA */
+
+.header h2 {
+  margin-top: 10vh;
+  color: #FFBB73;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.header, .room, img {
+  width: 20%;
+}
+
+/* SCREEN EDITS */
+
+@media screen and (max-width: 1920px) {
+
+}
+
+@media screen and (max-width: 1440px) {
+
+}
+
+@media screen and (max-width: 1366px) {
+
+}
+
+@media screen and (max-width: 1280px) {
+
+}
+
+@media screen and (max-width: 1180px) {
+
+}
+
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 991px) {
+  /* Social Media Icon Bar */
+  .icon-bar2 {
+    position: fixed;
+    top: 13%;
+    -webkit-transform: translateY(-13%);
+    -ms-transform: translateY(-13%);
+    transform: translateY(-13%);
+    padding: 0;
+  }
+
+  /* Style the icon bar links */
+  .icon-bar2 a {
+    display: inline;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: all 0.3s ease;
+    font-size: 15px;
+  }
+
+  /* Style the social media icons with color, if you want */
+  .icon-bar2 a {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #FFBB73;
+  }
+  .icon-bar2 a:focus {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #f6cd8d;
+  }
+}
+
+@media screen and (max-width: 766px) {
+
+}
+
+
+
+/* THINGS THAT ARE NEEDED */
+
+.select-none {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+a, a:hover, a:focus, a:active {
+     text-decoration: none;
+     color: inherit;
+}
+
+.divider {
+    height: 16px;
+    margin: 0 9px;
+    margin-top: 12px;
+    border-right: 1px solid #ffffff;
+    border-left: 1px solid #f2f2f2;
+}
+
+.dropdown-divider {
+  width: 40px;
+  margin-left: 58px;
+}
+
+.centered {
+  position: fixed; /* or absolute */
+  left: 30%;
+}
