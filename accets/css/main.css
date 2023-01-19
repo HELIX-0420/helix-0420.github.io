@@ -201,11 +201,8 @@ button {
 @media screen and (max-width: 991px) {
   /* Social Media Icon Bar */
   .icon-bar2 {
-    position: fixed;
-    top: 13%;
-    -webkit-transform: translateY(-13%);
-    -ms-transform: translateY(-13%);
-    transform: translateY(-13%);
+    position: static;
+    margin-top: 5%;
     padding: 0;
   }
 
@@ -230,6 +227,11 @@ button {
     background-color: rgba(0, 0, 0, 0.2);
     color: #f6cd8d;
   }
+
+  .navbar-collapse {
+    text-align: center;
+  }
+  
 }
 
 @media screen and (max-width: 766px) {
@@ -267,5 +269,5 @@ a, a:hover, a:focus, a:active {
 
 .centered {
   position: fixed; /* or absolute */
-  left: 30%;
+  left: 10%;
 }
