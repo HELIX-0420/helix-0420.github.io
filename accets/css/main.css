@@ -202,7 +202,7 @@ button {
   /* Social Media Icon Bar */
   .icon-bar2 {
     position: static;
-    margin-top: 5%;
+    margin-top: 1%;
     padding: 0;
   }
 
@@ -215,16 +215,14 @@ button {
     padding-left: 20px;
     padding-right: 20px;
     transition: all 0.3s ease;
-    font-size: 15px;
+    font-size: 22px;
   }
 
   /* Style the social media icons with color, if you want */
   .icon-bar2 a {
-    background-color: rgba(0, 0, 0, 0.2);
     color: #FFBB73;
   }
   .icon-bar2 a:focus {
-    background-color: rgba(0, 0, 0, 0.2);
     color: #f6cd8d;
   }
 
