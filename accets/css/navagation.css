@@ -1,0 +1,117 @@
+.navbar {
+  background-color: #2C2F33;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 30px; /* increase top & bottom padding */
+}
+
+.navbar-brand img {
+  height: 80px; /* adjust to fit better in enlarged navbar */
+  width: auto; /* keep aspect ratio */
+}
+
+/* Make the navbar text white for contrast */
+.navbar-text, .navbar-brand, .navbar-nav .nav-link {
+  color: white !important; /* Set text color to white */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Optional: font styling */
+}
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+.navbar-nav .nav-item {
+  margin-left: 20px;
+}
+
+.navbar .container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .container-fluid .navbar-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Soft shake */
+@keyframes softShake {
+  0%, 100% { transform: translate(0); }
+  25% { transform: translate(-0.5px, 0.5px); }
+  50% { transform: translate(0.5px, -0.5px); }
+  75% { transform: translate(-0.5px, 0); }
+}
+
+.phone-emoji-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 41x;
+}
+
+.phone-emoji {
+  animation: softShake 1s infinite;
+  position: relative;
+}
+
+@keyframes bounceMail {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.email-emoji {
+  display: inline-block;
+  position: relative;
+  animation: bounceMail 1.2s infinite;
+}
+
+/* Optional: little notification dot */
+.email-emoji::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  width: 6px;
+  height: 6px;
+  background-color: red;
+  border-radius: 50%;
+  border: 1px solid white;
+  animation: pulseDot 1.2s infinite;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Make underline only match text width in mobile menu */
+.navbar-nav .nav-link {
+  display: inline-block; /* instead of block */
+  position: relative;
+  padding-bottom: 4px; /* spacing under text */
+}
+
+/* Optional: custom underline effect */
+.navbar-nav .nav-link::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Hover state: expand underline */
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}

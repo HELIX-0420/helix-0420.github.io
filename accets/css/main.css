@@ -1,0 +1,128 @@
+body {
+  background-color: #2C2F33;
+  overflow-x: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.0;
+}
+
+/* Social Media Icon Bar */
+
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* Style the icon bar links */
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  padding-right: 26px;
+  transition: all 0.3s ease;
+  font-size: 22px;
+}
+
+/* Style the social media icons with color, if you want */
+.icon-bar a {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #FFBB73;
+}
+.icon-bar a:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #f6cd8d;
+}
+
+.twitter:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #4078c0;
+}
+.discord:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #7289da;
+}
+.twitchstats:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #9146FF;
+}
+.tiktok:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #ff0050;
+}
+.github:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #ffff;
+}
+
+@keyframes tw-channel-status-indicator-pulse {
+    0% {
+    opacity: 0.3;
+    transform: scaleX(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale3d(3, 3, 3);
+  }
+}
+
+/* NAVAGATION */
+/* Custom styles to ensure proper spacing */
+.navbar-nav {
+  flex-direction: row;
+}
+.navbar-nav .nav-item {
+  margin-left: 20px;
+}
+.navbar-nav .nav-item:first-child {
+  margin-left: 0;
+}
+.navbar .container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar .container-fluid .navbar-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* THINGS THAT ARE NEEDED */
+
+.select-none {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+a, a:hover, a:focus, a:active {
+     text-decoration: none;
+     color: inherit;
+}
+
+.divider {
+    height: 16px;
+    margin: 0 9px;
+    margin-top: 12px;
+    border-right: 1px solid #ffffff;
+    border-left: 1px solid #f2f2f2;
+}
+
+.dropdown-divider {
+  width: 40px;
+  margin-left: 58px;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
