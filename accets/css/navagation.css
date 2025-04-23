@@ -1,117 +1,58 @@
-.navbar {
-  background-color: #2C2F33;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 1000;
-  padding: 20px 30px; /* increase top & bottom padding */
-}
-
-.navbar-brand img {
-  height: 80px; /* adjust to fit better in enlarged navbar */
-  width: auto; /* keep aspect ratio */
-}
-
-/* Make the navbar text white for contrast */
-.navbar-text, .navbar-brand, .navbar-nav .nav-link {
-  color: white !important; /* Set text color to white */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Optional: font styling */
-}
-
-.navbar-nav {
-  flex-direction: row;
-}
-
-.navbar-nav .nav-item {
-  margin-left: 20px;
-}
-
-.navbar .container-fluid {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navbar .container-fluid .navbar-brand {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Soft shake */
-@keyframes softShake {
-  0%, 100% { transform: translate(0); }
-  25% { transform: translate(-0.5px, 0.5px); }
-  50% { transform: translate(0.5px, -0.5px); }
-  75% { transform: translate(-0.5px, 0); }
-}
-
-.phone-emoji-wrapper {
-  display: inline-flex;
-  align-items: center;
-  gap: 41x;
-}
-
-.phone-emoji {
-  animation: softShake 1s infinite;
+.custom-navbar {
+  background-color: transparent;
   position: relative;
+  margin-top: 20px;
 }
 
-@keyframes bounceMail {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+.navbar-email .email-link {
+  font-weight: 500;
+  color: #000;
+  text-decoration: none;
 }
 
-.email-emoji {
-  display: inline-block;
+.navbar-email img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.emoji-logo {
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
+}
+
+.email-link {
+  color: #f5f5f5 !important;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
   position: relative;
-  animation: bounceMail 1.2s infinite;
+  letter-spacing: 0.3px;
 }
 
-/* Optional: little notification dot */
-.email-emoji::after {
-  content: "";
-  position: absolute;
-  top: -2px;
-  right: -4px;
-  width: 6px;
-  height: 6px;
-  background-color: red;
-  border-radius: 50%;
-  border: 1px solid white;
-  animation: pulseDot 1.2s infinite;
+.email-link:hover {
+  color: #ffffff !important;
 }
 
-@keyframes pulseDot {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.4); opacity: 0.6; }
-  100% { transform: scale(1); opacity: 1; }
+/* Nav link styling */
+.navbar-nav .nav-link,
+.email-link {
+  font-weight: 500;
+  font-size: 16px;
+  color: #f5f5f5;
+  letter-spacing: 0.3px;
 }
 
-/* Make underline only match text width in mobile menu */
-.navbar-nav .nav-link {
-  display: inline-block; /* instead of block */
-  position: relative;
-  padding-bottom: 4px; /* spacing under text */
+.navbar-nav .nav-link:hover,
+.email-link:hover {
+  color: #ffffff;
 }
 
-/* Optional: custom underline effect */
-.navbar-nav .nav-link::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 2px;
-  background: white;
-  transition: width 0.3s;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.custom-navbar .navbar-email {
+  margin-left: 300px; /* Push email in from left */
 }
 
-/* Hover state: expand underline */
-.navbar-nav .nav-link:hover::after {
-  width: 100%;
+.custom-navbar .navbar-nav {
+  margin-right: 270px; /* Push nav links in from right */
 }
