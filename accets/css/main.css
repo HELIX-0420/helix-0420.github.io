@@ -126,3 +126,38 @@ a, a:hover, a:focus, a:active {
   align-items: center;
   justify-content: center;
 }
+
+@media (max-width: 767.98px) {
+  .icon-bar {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: none;
+    z-index: 9999;
+    padding-bottom: 5px;
+  }
+
+  .icon-bar a {
+    padding: 18px;
+    font-size: 20px;
+    flex: 1;
+  }
+
+  .icon-bar .twitchstats {
+    position: static;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .d-none.d-md-block {
+    display: flex !important;
+  }
+}

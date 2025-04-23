@@ -17,6 +17,13 @@
   z-index: 10;
 }
 
+@media (max-width: 767.98px) {
+  .twitch-status {
+    bottom: 48px;
+    left: 32px;
+  }
+}
+
 .live {
   background-color: red !important;
   animation: pulse 1.5s infinite;
