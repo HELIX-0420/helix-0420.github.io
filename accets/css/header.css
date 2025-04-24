@@ -11,44 +11,73 @@ body {
 /* === Terminal Container === */
 .hero-terminal {
   min-height: 100vh;
+  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 1rem;
+  justify-content: center; /* Center horizontally by default */
+  padding: 2rem 1rem; /* Adjusted padding for more compact layout */
+  align-items: center; /* Center content vertically */
 }
 
 /* === Terminal Box === */
 .terminal-box {
   background-color: #151a21;
   border-radius: 10px;
-  max-width: 720px;
+  width: 85%; /* Increased width to 85% for a wider terminal box */
+  max-width: 600px; /* Increased max-width for a slightly bigger box */
+  height: auto; /* Set height to auto to fit content */
+  min-height: 300px; /* Set a minimum height */
   box-shadow: 0 0 20px rgba(0, 255, 170, 0.2);
   overflow: hidden;
+  position: relative;
+  border: none; /* Remove any border */
 }
 
-/* Desktop view: Align terminal box to the right */
+/* Desktop view: Align terminal box to the right but adjust for better placement */
 @media (min-width: 768px) {
+  .hero-terminal {
+    justify-content: flex-start; /* Align to the left side of the page */
+    padding: 2rem 2rem; /* Less padding on the right to keep it closer */
+  }
+
   .terminal-box {
-    margin-left: auto;
-    margin-right: 0;
+    position: absolute; /* Position it absolutely within the relative hero-terminal */
+    right: 5%; /* Adjust the right margin to move it more left */
+    top: 15%; /* Adjust this to move the terminal box up or down */
+    margin-right: 0; /* Remove any additional margin-right */
   }
 }
 
-/* Mobile view: Center terminal box */
+/* Mobile view: Center terminal box horizontally and position it closer to the top */
 @media (max-width: 767px) {
+  .hero-terminal {
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align content to the top */
+    padding-top: 3rem; /* Increased padding to move it down a bit */
+  }
+
   .terminal-box {
     margin-left: auto;
     margin-right: auto;
+    top: 3rem; /* Adjust this value to move it further down */
+    position: relative; /* Keep the box within the flow of content */
   }
 }
 
+/* === Terminal Header (Red, Yellow, Green Dots) === */
 .terminal-header {
   background: #2a2f38;
   padding: 0.5rem 1rem;
   display: flex;
   gap: 0.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1; /* Make sure the header is on top of the terminal content */
+  box-sizing: border-box; /* Ensure the header takes up space without affecting other content */
 }
 
+/* Dot Styling */
 .dot {
   width: 12px;
   height: 12px;
@@ -61,7 +90,7 @@ body {
 
 .ascii {
   font-family: 'Fira Code', monospace;
-  font-size: 0.85rem;
+  font-size: 0.7rem; /* Make ASCII text smaller */
   line-height: 1.1;
   color: #39ff14;
   white-space: pre;
@@ -75,7 +104,29 @@ body {
 .ascii-comment {
   color: #6aff6a;
   font-family: 'Fira Code', monospace;
-  font-size: 0.9rem;
+  font-size: 0.75rem; /* Make comments smaller */
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  text-shadow: 0 0 3px rgba(0, 255, 90, 0.4);
+}
+
+.ascii {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.6rem;
+  line-height: 1.1;
+  color: #39ff14;
+  white-space: pre;
+  display: block;
+  overflow-x: auto;
+  text-align: center;
+  margin: 0 auto 0.5rem auto;
+  padding: 0;
+}
+
+.ascii-comment {
+  color: #6aff6a;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.6rem;
   margin-top: 0;
   margin-bottom: 0.4rem;
   text-shadow: 0 0 3px rgba(0, 255, 90, 0.4);
@@ -148,11 +199,12 @@ body {
   100% { transform: translate(-50%, -50%) translateX(0); opacity: 1; }
 }
 
+/* === Smaller Font for All Text === */
 .terminal-area {
   font-family: 'Fira Code', monospace;
   color: #cdd9e5;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.8rem; /* Make the terminal text smaller */
+  line-height: 1.4; /* Adjust line-height for readability */
   background-color: #151a21;
   border-radius: 10px;
   padding: 2rem;
@@ -163,6 +215,7 @@ body {
   transition: opacity 1s ease;
 }
 
+/* === Command Styling === */
 .comment {
   color: #6a9955;
   font-style: italic;
@@ -189,6 +242,7 @@ body {
   gap: 0.25rem;
 }
 
+/* === Interactive Area === */
 #terminal-scroll-area {
   max-height: 8.1rem;
   overflow-y: auto;
@@ -211,14 +265,14 @@ body {
   outline: none;
   color: #39ff14;
   font-family: 'Fira Code', monospace;
-  font-size: 1rem;
+  font-size: 0.8rem; /* Smaller font size for the input */
   width: 70%;
   caret-color: #39ff14;
 }
 
 .scroll-hint {
   font-family: 'Fira Code', monospace;
-  font-size: 0.75rem;
+  font-size: 0.75rem; /* Smaller font size for the scroll hint */
   color: #39ff14;
   opacity: 0.5;
   text-align: center;
