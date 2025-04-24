@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="accets/css/main.css">
     <link rel="stylesheet" href="accets/css/navagation.css">
     <link rel="stylesheet" href="accets/css/twitchstats.css">
+    <link rel="stylesheet" href="accets/css/header.css">
   </head>
 
   <!-- The social media icon bar -->
@@ -87,10 +88,231 @@
         <li class="nav-item"><a class="nav-link" href="#services">Service</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
-
     </div>
   </nav>
 
+  <section class="hero-terminal text-white">
+    <div class="container">
+      <div class="terminal-box mx-auto">
+        <div class="terminal-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <div class="terminal-body position-relative">
+
+
+          <!-- Boot Sequence Layer -->
+          <!-- Terminal Boot Overlay -->
+          <div class="boot-sequence-terminal text-green text-center" id="boot">
+            <div id="boot-lines">
+              <p class="boot-line" id="boot-line-1">Initializing system...</p>
+              <p class="boot-line" id="boot-line-2">Verifying identity...</p>
+              <p class="boot-line" id="boot-line-3">Decrypting access token...</p>
+            </div>
+            <p class="access-glitch" id="access-line" data-text="ACCESS GRANTED">ACCESS GRANTED</p>
+          </div>
+
+          <!-- Terminal UI -->
+          <div id="terminal-content" class="terminal-area">
+            <pre class="ascii">
+_   _      _ _        __        __         _
+/$$   /$$ /$$$$$$$$ /$$       /$$$$$$ /$$   /$$
+| $$  | $$| $$_____/| $$      |_  $$_/| $$  / $$|
+| $$  | $$| $$      | $$        | $$  |  $$/ $$/
+| $$$$$$$$| $$$$$   | $$        | $$   \  $$$$/
+| $$__  $$| $$__/   | $$        | $$    >$$  $$|
+| $$  | $$| $$      | $$        | $$   /$$/\  $$|
+| $$  | $$| $$$$$$$$| $$$$$$$$ /$$$$$$| $$  \ $$/
+|__/  |__/|________/|________/|______/|__/  |__/
+            </pre>
+            <div class="ascii-comment"># Welcome to the HELIX.DEV interface.</div>
+            <div class="ascii-comment"># Type <span class="command">help</span> to view available commands.</div>
+            <div class="ascii-comment"># I'm probably coding & surviving on 99% caffeine, 1% sleep ☕💀</div>
+            <br>
+
+            <div class="line">
+              <span class="prompt">helix@localhost</span>:<span class="path">~</span>$ <span class="command">systemctl status helix</span>
+            </div>
+            <div class="output">> Online · Fully caffeinated · Error rate: low-ish</div>
+
+            <!-- Interactive commands -->
+            <div id="terminal-scroll-area">
+              <div id="terminal-output"></div>
+              <div class="line">
+                <span class="prompt">helix@localhost</span>:<span class="path">~</span>$
+                <input type="text" id="terminal-input" autocomplete="off" autofocus />
+              </div>
+            </div>
+
+            <div id="scroll-up-hint" class="scroll-hint" style="display: none;">▲ scroll up to see all logs ▲</div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Boot + Terminal JS -->
+  <script>
+    window.addEventListener('load', () => {
+      const boot = document.getElementById('boot');
+      const content = document.getElementById('terminal-content');
+      const accessLine = document.getElementById('access-line');
+      const bootLinesContainer = document.getElementById('boot-lines');
+
+      setTimeout(() => document.getElementById('boot-line-1').classList.add('show'), 300);
+      setTimeout(() => document.getElementById('boot-line-2').classList.add('show'), 1000);
+      setTimeout(() => document.getElementById('boot-line-3').classList.add('show'), 1700);
+      setTimeout(() => bootLinesContainer.classList.add('fade-out'), 2700);
+      setTimeout(() => accessLine.classList.add('glitch-show'), 3200);
+      setTimeout(() => { boot.style.opacity = 0; }, 4300);
+      setTimeout(() => {
+        boot.style.display = 'none';
+        content.style.opacity = 1;
+      }, 5000);
+    });
+
+    const terminalOutput = document.getElementById('terminal-output');
+    const terminalInput = document.getElementById('terminal-input');
+    const terminalScroll = document.getElementById('terminal-scroll-area');
+    const sessionStart = Date.now();
+
+    const commands = {
+      help: `Available commands:
+    - uptime        Show how long you’ve been browsing
+    - clock         Show current time
+    - weather       Show weather in your area
+    - clear         Clear the terminal`,
+
+      clock: () => {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const isPM = hours >= 12;
+        const displayHours = hours % 12 || 12;
+        const ampm = isPM ? 'PM' : 'AM';
+        return `> Current time: ${displayHours}:${minutes}:${seconds} ${ampm}`;
+      },
+
+      uptime: () => {
+        const elapsed = Math.floor((Date.now() - sessionStart) / 1000);
+        const mins = Math.floor(elapsed / 60);
+        const secs = elapsed % 60;
+        return `> Uptime: ${mins}m ${secs}s`;
+      },
+
+      weather: () => {
+        if (!navigator.geolocation) {
+          return '> Geolocation not supported by your browser.';
+        }
+
+        navigator.geolocation.getCurrentPosition(pos => {
+          const { latitude, longitude } = pos.coords;
+
+          // Reverse geolocation to get city and region
+          fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`)
+            .then(res => res.json())
+            .then(data => {
+              const city = data.city || data.locality || 'your town';
+              const region = data.principalSubdivision || '';
+
+              // Static weather data (without an API key)
+              const temp = '17°C';  // Static temperature
+              const condition = 'Overcast';  // Static weather condition
+              const wind = '5 km/h';  // Static wind speed
+              const humidity = '85%';  // Static humidity
+              const sunrise = '6:10 AM';  // Static sunrise time
+              const sunset = '8:00 PM';  // Static sunset time
+
+              const cleanWeather = `
+    <div class="output">
+    Weather in ${city}, ${region}:
+    ► Condition : ${condition}
+    ► Temp      : ${temp}
+    ► Wind      : ${wind}
+    ► Humidity  : ${humidity}
+    ► Sunrise   : ${sunrise}
+    ► Sunset    : ${sunset}
+    </div>`;
+
+              terminalOutput.innerHTML += cleanWeather;
+              terminalScroll.scrollTop = terminalScroll.scrollHeight;
+            })
+            .catch(error => {
+              console.error('Error fetching geolocation data:', error);
+              terminalOutput.innerHTML += '<div class="output">> Failed to fetch location data.</div>';
+            });
+        });
+
+        return ''; // no immediate output
+      },
+
+      clear: 'CLEAR_SCREEN',
+    };
+
+    terminalInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        const cmd = terminalInput.value.trim();
+        if (!cmd) return;
+
+        const promptHTML = `<div class="line"><span class="prompt">helix@localhost</span>:<span class="path">~</span>$ ${cmd}</div>`;
+        let result = commands[cmd];
+
+        if (typeof result === 'function') {
+          result = result();
+        }
+
+        if (!result) {
+          result = `> Command not found: ${cmd}`;
+        }
+
+        if (result === 'CLEAR_SCREEN') {
+          terminalOutput.innerHTML = '';
+        } else {
+          terminalOutput.innerHTML += `${promptHTML}<div class="output">${result}</div>`;
+        }
+
+        terminalInput.value = '';
+        terminalScroll.scrollTop = terminalScroll.scrollHeight;
+      }
+    });
+  </script>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const scrollHint = document.getElementById('scroll-up-hint');
+    const scrollArea = document.getElementById('terminal-scroll-area');
+    const terminalInput = document.getElementById('terminal-input');
+    const terminalOutput = document.getElementById('terminal-output');
+
+    function updateScrollHint() {
+      const canScroll = scrollArea.scrollHeight > scrollArea.clientHeight;
+      const scrolledToTop = scrollArea.scrollTop === 0;
+
+      if (canScroll && !scrolledToTop) {
+        scrollHint.style.display = 'block';
+      } else {
+        scrollHint.style.display = 'none';
+      }
+    }
+
+    // Show/hide on scroll
+    scrollArea.addEventListener('scroll', updateScrollHint);
+
+    // Trigger after command entered
+    terminalInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        setTimeout(updateScrollHint, 100);
+      }
+    });
+
+    // Trigger once on load
+    updateScrollHint();
+  });
+</script>
 
 
     <!-- Optional JavaScript -->
