@@ -71,6 +71,11 @@
 }
 
 @media (max-width: 768px) {
+
+  .custom-navbar {
+    margin-top: 2px;
+  }
+
   .navbar-logo {
     display: none !important;
     visibility: hidden !important;
@@ -79,8 +84,8 @@
   }
 
   .logo-img-mobile {
-    width: 56px;
-    height: 56px;
+    width: 65px;
+    height: 65px;
   }
   .navbar-email {
     display: none !important;
@@ -88,11 +93,16 @@
 
   .email-link {
     font-size: 14px;
+    margin-right: 20px;
   }
 
   .navbar-nav {
     justify-content: center;
     width: 100%;
     margin-top: 10px;
+  }
+
+  .gap-4 {
+    gap: 0.8rem !important;
   }
 }
