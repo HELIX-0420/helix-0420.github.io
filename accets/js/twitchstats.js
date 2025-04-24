@@ -1,6 +1,6 @@
 const clientId = 'vmehg5hmjn31qugdu5hhijkogt30mj';
 const accessToken = 'i8hlmg3l7a3xu1gi2ximappgknfbu7';
-const username = 'gkey';
+const username = 'angryginge13';
 
   async function checkTwitchStatus() {
     try {
