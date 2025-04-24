@@ -56,3 +56,36 @@
 .custom-navbar .navbar-nav {
   margin-right: 270px; /* Push nav links in from right */
 }
+
+/* Default logo styling */
+.logo-img-desktop {
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
+}
+
+.logo-img-mobile {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .navbar-logo {
+    display: none !important;
+  }
+
+  .navbar-email {
+    display: none !important;
+  }
+
+  .email-link {
+    font-size: 14px;
+  }
+
+  .navbar-nav {
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+}

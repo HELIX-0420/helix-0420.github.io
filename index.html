@@ -55,27 +55,43 @@
 
   <!-- Navbar -->
   <nav class="navbar custom-navbar py-3">
-    <div class="container-fluid d-flex justify-content-between align-items-center">
+    <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
 
-      <!-- Left: Email -->
-      <div class="navbar-email d-flex align-items-center">
-        <a href="mailto:hi@arif.interactive" class="email-link">📧 - SpeccyNerd@outlook.com</a>
+      <!-- Mobile ONLY: logo left, email centered -->
+      <div class="d-flex align-items-center justify-content-between w-100 d-flex d-md-none order-1">
+        <!-- Logo (left) -->
+        <div class="navbar-logo-mobile">
+          <img src="accets/pictures/Helix.png" alt="logo" class="logo-img-mobile">
+        </div>
+
+        <!-- Email (centered) -->
+        <div class="flex-grow-1 text-center">
+          <a href="mailto:hi@arif.interactive" class="email-link">📧- Speccynerd@outlook.com</a>
+        </div>
       </div>
 
-      <!-- Center: Avatar or Logo -->
-      <div class="navbar-logo position-absolute top-50 start-50 translate-middle">
-        <img src="accets/pictures/Helix.png" alt="emoji logo" class="emoji-logo">
+      <!-- Desktop ONLY: Email (left) -->
+      <div class="navbar-email d-none d-md-flex align-items-center order-md-1">
+        <a href="mailto:hi@arif.interactive" class="email-link">📧- Speccynerd@outlook.com</a>
       </div>
 
-      <!-- Right: Nav Links -->
-      <ul class="navbar-nav flex-row gap-4 mb-0">
+      <!-- Desktop ONLY: Centered logo -->
+      <div class="navbar-logo d-none d-md-block position-absolute top-50 start-50 translate-middle order-md-2">
+        <img src="accets/pictures/Helix.png" alt="navbar logo" class="logo-img-desktop">
+      </div>
+
+      <!-- Always shown: Nav links (right) -->
+      <ul class="navbar-nav flex-row gap-4 mb-0 order-2 order-md-3 ms-md-auto">
         <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
         <li class="nav-item"><a class="nav-link" href="#journey">Journey</a></li>
         <li class="nav-item"><a class="nav-link" href="#services">Service</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
+
     </div>
   </nav>
+
+
 
     <!-- Optional JavaScript -->
     <script src="accets/js/twitchstats.js"></script>
