@@ -73,8 +73,15 @@
 @media (max-width: 768px) {
   .navbar-logo {
     display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
   }
 
+  .logo-img-mobile {
+    width: 56px;
+    height: 56px;
+  }
   .navbar-email {
     display: none !important;
   }
